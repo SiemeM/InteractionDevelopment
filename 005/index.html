@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoGame</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    /* Basic body styling for a clean look */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 300px;
+  text-align: center;
+  display: none; /* Hidden by default */
+  z-index: 1000; /* Ensure it's above the map */
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  #message {
+    width: 90%;
+  }
+}
+
+  </style>
+  <style>
+    #map {
+      height: 400px;
+    }
+
+    #message {
+
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 10px;
+      border: 1px solid black;
+      display: none;
+      z-index: 1000; /* Ensure it's above the map */
+    
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="message"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const map = L.map('map').setView([51.0259, 4.4773], 13); // Mechelen coordinates and zoom level
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  const locations = [
+  { 
+  name: 'Location 1', 
+  coords: [50.8512, 4.3417], 
+  message: 'Welkom op locatie 1! Zoek de hoogste toren in de omgeving en maak er een foto van.' 
+}, // Jubelpark, Brussel
+
+{ 
+  name: 'Location 2', 
+  coords: [51.2214, 4.4052], 
+  message: 'Welkom op locatie 2! Vind de standbeelden van Peter Paul Rubens.' 
+}, // Groenplaats, Antwerpen
+
+{ 
+  name: 'Location 3', 
+  coords: [50.6427, 5.5716], 
+  message: 'Welkom op locatie 3! Maak een foto van een kunstwerk in de openbare ruimte.' 
+}, // Parc de la Boverie, Luik
+
+{ 
+  name: 'Location 4', 
+  coords: [51.0535, 3.7250], 
+  message: 'Welkom op locatie 4! Zoek de oudste boom in het park en maak er een foto van.' 
+}, // Citadelpark, Gent
+
+{ 
+  name: 'Location 5', 
+  coords: [50.8467, 4.3528], 
+  message: 'Welkom op locatie 5! Vind het Manneken Pis standbeeld gekleed in een kostuum.' 
+} // Centrum, Brussel
+
+  ];
+
+  // Place markers for each location
+  const markers = [];
+  locations.forEach(location => {
+    const marker = L.marker(location.coords).addTo(map).bindPopup(location.name);
+    markers.push(marker);
+  });
+
+  // Function to calculate the distance between two coordinates (Haversine formula)
+  function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Earth's radius in kilometers
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const d = R * c;
+    return d;
+  }
+
+  // Function to show a message
+  function showMessage(message) {
+    const messageDiv = document.getElementById('message');
+    messageDiv.innerText = message;
+    messageDiv.style.display = 'block'; // Show the message on the screen
+  }
+
+  // Function to hide the message
+  function hideMessage() {
+    const messageDiv = document.getElementById('message');
+    messageDiv.style.display = 'none'; // Hide the message on the screen
+  }
+
+  // Function to check if the player is near a location
+  function checkLocationProximity(userLat, userLng) {
+    let isNearLocation = false;
+    locations.forEach(location => {
+      const distance = calculateDistance(userLat, userLng, location.coords[0], location.coords[1]);
+      if (distance < 0.1) { // If the player is within 100 meters of the location
+        isNearLocation = true;
+        showMessage(location.message);
+      }
+    });
+    if (!isNearLocation) {
+      hideMessage();
+    }
+  }
+
+  // Function to handle the player's location
+  function onLocationFound(e) {
+    const userLat = e.latitude;
+    const userLng = e.longitude;
+
+    // Check if the player is near a location
+    checkLocationProximity(userLat, userLng);
+  }
+
+  // Listen for the player's location changes
+  map.on('locationfound', onLocationFound);
+  map.locate({ setView: true, maxZoom: 16 });
+
+  // Listen for the player's movement and continuously check the distance to the locations
+  map.on('move', function (e) {
+    const userLat = map.getCenter().lat;
+    const userLng = map.getCenter().lng;
+
+    // Check if the player is near a location
+    checkLocationProximity(userLat, userLng);
+  });
+});
+
+  </script>
+</body>
+</html>

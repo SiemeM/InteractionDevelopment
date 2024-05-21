@@ -1,0 +1,457 @@
+body {
+  margin: 0;
+  color: #333;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+h1 {
+  color: #000;
+  font-family: Open Sans, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.contactOne {
+  color: #333;
+  font-family: Open Sans, sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.contactOne:hover {
+  color: black;
+}
+
+.contact {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  
+}
+
+.projectsList {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+ .projectList {
+  color: rgba(0, 0, 0, .25);
+  font-family: Open Sans, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 68px;
+  text-decoration: none;
+  transition: font-size .2s cubic-bezier(.175, .885, .32, 1.275);
+}
+
+.projectList:hover{
+  color: black; /* Adjust the hover color based on the specific project */
+  font-size: 68px;
+  line-height: 80px;
+}
+
+.container, .container-2 {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects {
+  background-image: linear-gradient(#fff, #fff);
+}
+
+.ProjectsText {
+  color: #333;
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.liContact{
+  padding-right: 15px;
+}
+
+
+
+
+
+
+.navR {
+  height: 160px;
+  margin-right: 8em;
+  position: fixed;
+  top: 30%;
+  bottom: 0;
+  right: 0;
+}
+
+
+.ulRNav {
+  float: right;
+  text-align: right;
+  padding-left: 0;
+  list-style: none;
+}
+
+
+
+
+.NavText {
+  color: white;
+  text-align: right;
+  text-decoration: none;
+}
+
+.NavText:hover {
+  color: white;
+}
+
+.navlist {
+  margin-top: 20px; /* Creëer ruimte onder elk .navlist element */
+  margin-bottom: 5px; /* Creëer ruimte onder elk .navlist element */
+}
+
+.NavTextTitle {
+  color: white;
+  text-align: right;
+  text-decoration: none;
+  cursor: not-allowed;
+  
+}
+
+
+
+
+
+
+
+
+.container-3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 64pt 10px;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.TitleWork {
+  color: rgba(255, 255, 255, .75);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-family: Open Sans, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+
+.headingtitleWork {
+  color: #fff;
+  margin-top: 5px;
+  font-family: Open Sans, sans-serif;
+  font-size: 48px;
+  line-height: 68px;
+}
+
+
+.paragraphWork {
+  color: #fff;
+  margin-top: 64px;
+  font-family: Open Sans, sans-serif;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.LearnMore{
+  color: #fff;
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+  text-decoration: none;
+}
+
+.LearnMoreB{
+  color: black;
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
+  line-height: 32px;
+  text-decoration: none;
+}
+
+.LearnMoreP{
+  margin-bottom: 50px;
+}
+
+
+
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+
+.Government {
+  opacity: 1;
+  background-color: white;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+.Government .TitleWork,
+.Government .headingtitleWork,
+.Government .paragraphWork {
+    color: black;
+}
+
+
+.Hoppin {
+  opacity: 1;
+  background-color: #56BBA2;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+.Hoppin .TitleWork,
+.Hoppin .headingtitleWork,
+.Hoppin .paragraphWork {
+    color: white;
+}
+
+.MoviePoster {
+  opacity: 1;
+  background-color: #FACC67;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+.MoviePoster .TitleWork,
+.MoviePoster .headingtitleWork,
+.MoviePoster .paragraphWork {
+    color: white;
+}
+
+
+.Dynamictypography {
+  opacity: 1;
+  background-color: #F9E929;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+.Dynamictypography .TitleWork,
+.Dynamictypography .headingtitleWork,
+.Dynamictypography .paragraphWork {
+    color: white;
+}
+
+.useless {
+  opacity: 1;
+  background-color: #0078D7;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+.useless .TitleWork,
+.useless .headingtitleWork,
+.useless .paragraphWork {
+    color: white;
+}
+
+
+
+.PuntoDePadelWork {
+  opacity: 1;
+  background-color: black;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+.PuntoDePadelWork .TitleWork,
+.PuntoDePadelWork .headingtitleWork,
+.PuntoDePadelWork .paragraphWork {
+    color: white;
+}
+
+
+
+.MorrenMotor {
+  opacity: 1;
+  background-color: #193478;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+#MorrenMotor .TitleWork,
+#MorrenMotor .headingtitleWork,
+#MorrenMotor .paragraphWork {
+    color: white;
+}
+
+
+.VRT {
+  opacity: 1;
+  background-color: #F24A44;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+#VRT .TitleWork,
+#VRT .headingtitleWork,
+#VRT .paragraphWork {
+    color: white;
+}
+
+.Companyweb {
+  opacity: 1;
+  background-color: #8E8E93;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+#Companyweb .TitleWork,
+#Companyweb .headingtitleWork,
+#Companyweb .paragraphWork {
+    color: white;
+}
+
+
+.ThomasMore {
+  opacity: 1;
+  background-color: #FA6432;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+#ThomasMore .TitleWork,
+#ThomasMore .headingtitleWork,
+#ThomasMore .paragraphWork {
+    color: white;
+}
+
+.CampusMax {
+  opacity: 1;
+  background-color: #009289;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+#CampusMax .TitleWork,
+#CampusMax .headingtitleWork,
+#CampusMax .paragraphWork {
+    color: white;
+}
+
+.IJsland {
+  opacity: 1;
+  background-color: #00467F;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+}
+
+
+#IJsland .TitleWork,
+#IJsland .headingtitleWork,
+#IJsland .paragraphWork {
+    color: white;
+}
+
+
+@media (max-width: 768px) {
+  .navR {
+      display: none; /* Hide navR on mobile */
+  }
+
+  h1 {
+      font-size: 24px; /* Adjust heading font size */
+  }
+
+  .projectList {
+      font-size: 24px; /* Adjust project list font size */
+      line-height: 34px;
+  }
+
+  .container, .container-2 {
+      padding: 0 15px; /* Add padding to containers */
+  }
+
+  .paragraphWork {
+      font-size: 18px; /* Adjust paragraph font size */
+      line-height: 28px;
+  }
+
+  .TitleWork {
+      font-size: 12px; /* Adjust title font size */
+      line-height: 16px;
+  }
+
+  .headingtitleWork {
+      font-size: 32px; /* Adjust heading title font size */
+      line-height: 42px;
+  }
+
+  .LearnMore, .LearnMoreB {
+      font-size: 16px; /* Adjust Learn More font size */
+      line-height: 24px;
+  }
+}
+
+

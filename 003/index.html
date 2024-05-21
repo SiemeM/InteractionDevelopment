@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification with MobileNet</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Image Classification with MobileNet</h1>
+        <div id="video-container">
+            <video id="webcam" autoplay playsinline width="640" height="480"></video>
+            <canvas id="canvas" width="640" height="480"></canvas>
+        </div>
+        <button id="capture">Classify Image</button>
+        <div id="result"></div>
+    </div>
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/webcam-easy/dist/webcam-easy.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
